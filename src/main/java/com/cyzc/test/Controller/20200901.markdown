@@ -1,0 +1,7 @@
+##SpringMvc接受参数
+  **前端传输数据类型**
+  >表单：使用@RequestParam(value = "id",required = false) Long id 来接受
+  >json:使用 @RequestBody PersonPojo personPojo 来接收
+
+1 .mysql乱码如何解决 在yml文件中加上useUnicode=true&characterEncoding=utf-8&useSSL=false 指定编码格式
+2 .为何请求为空？？？  需要解决
