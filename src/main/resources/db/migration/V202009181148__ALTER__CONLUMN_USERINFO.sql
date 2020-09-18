@@ -1,0 +1,1 @@
+alter table user_info add column person_desc varchar(100) default null;
