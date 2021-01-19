@@ -1,6 +1,10 @@
 package lambda;
 
 import org.junit.Test;
+import org.springframework.util.ObjectUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class lambdaTest {
 
@@ -11,6 +15,17 @@ public class lambdaTest {
 
     public void pringSomething(String s1,Printer printer){
         printer.printer(s1);
+
+    }
+
+    @Test
+    public void testEmpty(){
+        List<String>list=new ArrayList();
+        //ListUtils.emptyIfNull()
+        list.add("");
+        boolean a=list.get(0).isEmpty();
+        boolean b=ObjectUtils.isEmpty(list);
+        System.out.println(list+""+list.size()+""+b+""+a);
 
     }
 

@@ -1,18 +1,21 @@
-package com.cyzc.test.Controller;
+package com.cyzc.test.mybatis.controller;
 
-import com.cyzc.test.Entity.Student;
-import com.cyzc.test.service.StudentService;
+import com.cyzc.test.mybatis.entity.Student;
+import com.cyzc.test.mybatis.service.StudentService;
 import com.cyzc.test.web.resolve.Response;
 import com.cyzc.test.web.resolve.ResponseCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping(value = "Student")
@@ -47,13 +50,15 @@ public class StudentController {
 
         Student s=new Student();
         s.setId(60L);
-        s.setSname("文在寅");
-        s.setSclass(12);
-        s.setSsex(1);
+        s.setsName("文在寅");
+        s.setsClass(12);
+        s.setsSex(1);
         int result=studentService.addStudent(s);
         if (result==1){
             return Response.success();
-        }else return Response.error(ResponseCode.SERVER_ERROR);
+        }else {
+            return Response.error(ResponseCode.SERVER_ERROR);
+        }
 
     }
     @ApiIgnore

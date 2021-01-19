@@ -1,8 +1,8 @@
-package com.cyzc.test.Entity.jpa;
+package com.cyzc.test.jpa.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,10 +20,8 @@ public class PersonPojo {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "name",nullable = true,length = 20)
     private String name;
 
-    @Column(name = "age",nullable = true,length = 20)
     private int age;
 
 

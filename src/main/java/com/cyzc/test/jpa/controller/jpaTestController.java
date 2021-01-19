@@ -1,11 +1,15 @@
-package com.cyzc.test.Controller;
+package com.cyzc.test.jpa.controller;
 
-import com.cyzc.test.Entity.jpa.PersonPojo;
-import com.cyzc.test.config.PersonResponsitory;
+import com.cyzc.test.jpa.entity.PersonPojo;
+import com.cyzc.test.jpa.dao.PersonResponsitory;
 import com.cyzc.test.web.resolve.Response;
-import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: Cyzc
@@ -20,7 +24,8 @@ public class jpaTestController {
     private PersonResponsitory personResponsitory;
 
     /**
-     *  前端表单提交数据
+     * 前端表单提交数据
+     *
      * @param id
      * @param name
      * @param age
@@ -28,10 +33,10 @@ public class jpaTestController {
      */
     @PostMapping(value = "addPerson")
     public Response getPerson(
-                                @RequestParam(value = "id",required = false) Long id,
-                                @RequestParam(value = "name",required = true) String name,
-                                @RequestParam(value = "age",required = true) int age){
-        PersonPojo personPojo=new PersonPojo();
+            @RequestParam(value = "id", required = false) Long id,
+            @RequestParam(value = "name", required = true) String name,
+            @RequestParam(value = "age", required = true) int age) {
+        PersonPojo personPojo = new PersonPojo();
         personPojo.setId(id);
         personPojo.setName(name);
         personPojo.setAge(age);
@@ -41,11 +46,12 @@ public class jpaTestController {
 
     /**
      * 前端使用json传输数据
+     *
      * @param personPojo
      * @return
      */
     @PostMapping(value = "add")
-    public Response addPerson(@RequestBody PersonPojo personPojo ){
+    public Response addPerson(@RequestBody PersonPojo personPojo) {
         personResponsitory.save(personPojo);
         return Response.success();
     }

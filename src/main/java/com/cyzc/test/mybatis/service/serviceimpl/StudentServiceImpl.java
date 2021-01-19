@@ -1,8 +1,8 @@
-package com.cyzc.test.service.serviceimpl;
+package com.cyzc.test.mybatis.service.serviceimpl;
 
-import com.cyzc.test.Entity.Student;
-import com.cyzc.test.Dao.StudentMapper;
-import com.cyzc.test.service.StudentService;
+import com.cyzc.test.mybatis.entity.Student;
+import com.cyzc.test.mybatis.dao.StudentMapper;
+import com.cyzc.test.mybatis.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -51,10 +51,9 @@ public class StudentServiceImpl implements StudentService {
 
         Student s=new Student();
         s.setId(student.getId());
-        s.setSname("丘吉尔");
-        s.setSsex(0);
-        s.setSclass(24);
-
+        s.setsName("丘吉尔");
+        s.setsSex(0);
+        s.setsClass(24);
         int result= studentMapper.updateStudentById(s);
         return result;
     }

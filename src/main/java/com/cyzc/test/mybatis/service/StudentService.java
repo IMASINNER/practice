@@ -1,6 +1,6 @@
-package com.cyzc.test.service;
+package com.cyzc.test.mybatis.service;
 
-import com.cyzc.test.Entity.Student;
+import com.cyzc.test.mybatis.entity.Student;
 
 public interface StudentService {
 

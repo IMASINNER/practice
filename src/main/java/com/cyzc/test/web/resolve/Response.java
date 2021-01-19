@@ -43,8 +43,6 @@ public class Response extends HashMap<String, Object> {
     }
 
 
-
-
-    }
+}
 
 
