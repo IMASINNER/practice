@@ -9,10 +9,10 @@ public class testGeo {
 
 
         long raidus = 10000; //半径10km
-        double lon = 114.10763282; //当前经度
-        double lat = 22.54046739; //当前纬度
-        double lon1=116.993415971693;
-        double lat1=35.5873722864877;
+        double lon = 114.305981; //当前经度
+        double lat = 22.596304; //当前纬度
+        double lon1=118.446439850079;
+        double lat1=29.8220753639329;
 //        double lon2=108.9644583556;
 //        double lat2=34.286439088548;
         double dist;

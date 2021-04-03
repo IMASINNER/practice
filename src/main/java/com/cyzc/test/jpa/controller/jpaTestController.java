@@ -1,7 +1,8 @@
 package com.cyzc.test.jpa.controller;
 
-import com.cyzc.test.jpa.entity.PersonPojo;
+import com.cyzc.test.distanceTest.service.DistanceService;
 import com.cyzc.test.jpa.dao.PersonResponsitory;
+import com.cyzc.test.jpa.entity.PersonPojo;
 import com.cyzc.test.web.resolve.Response;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +23,9 @@ public class jpaTestController {
 
     @Resource
     private PersonResponsitory personResponsitory;
+
+    @Resource
+    private DistanceService distanceService;
 
     /**
      * 前端表单提交数据
@@ -59,5 +63,10 @@ public class jpaTestController {
     @DeleteMapping(path = "deletePerson")
     public void deletePerson(Long id) {
         personResponsitory.deleteById(id);
+    }
+
+    @PostMapping("getDistanceBetweenConfAndCompany")
+    public void getDistanceBetweenConfAndCompany(){
+
     }
 }

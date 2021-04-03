@@ -1,16 +1,18 @@
 package Collection;
 
-import org.junit.Test;
-import org.springframework.util.ObjectUtils;
-
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import org.junit.Test;
+import org.springframework.util.ObjectUtils;
+import pojo.Person;
 
 public class ListDemo {
 
@@ -93,6 +95,46 @@ public class ListDemo {
         System.out.println(result);
     }
 
+    @Test
+    public void TestBigDecimal(){
+
+       // BigDecimal bigDecimal=new BigDecimal();
+
+
+
+    }
+    @Test
+    public void testStreamFilter(){
+        Person person1=new Person("1",1,"1");
+        Person person2=new Person("2",2,"2");
+        Person person3=new Person("3",1,"3");
+        Person person4=new Person("4",4,"5");
+        Person person5=new Person("6",6,"6");
+
+        List<Person> list=new ArrayList<>();
+        list.add(person1);
+        list.add(person2);
+        list.add(person3);
+        list.add(person4);
+        list.add(person5);
+
+        List<Person> collect = list.stream().filter(person -> person.getAge().equals(1))
+                .collect(Collectors.toList());
+
+        System.out.println(collect);
+    }
+
+    @Test
+    public void testasdas(){
+
+
+        List<String> list= Arrays.asList("1","2");
+
+        list=Arrays.asList("3","4");
+
+        System.out.println(list);
+
+    }
 
 
 }

@@ -75,8 +75,6 @@ public class StudentController {
     public Response updateStudent(@RequestBody Student student){
 
         studentService.updateStudent(student);
-
-
         return Response.success();
 
     }

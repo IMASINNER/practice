@@ -1,8 +1,10 @@
 package com.cyzc.test.mybatis.dao;
 
 import com.cyzc.test.mybatis.entity.Student;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface StudentMapper {
 
     //根据id获取学生信息
@@ -13,4 +15,7 @@ public interface StudentMapper {
     int deleteStudentById(@Param("id") Long id);
 
     int updateStudentById(Student student);
+
+
+
 }

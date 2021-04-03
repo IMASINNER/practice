@@ -5,8 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.cyzc.test.Dao")
-
+@MapperScan("com.cyzc.test.mybatis.dao")
 public class TestApplication {
 
     public static void main(String[] args) {

@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.util.StringUtils;
 
 public class testHutools {
 
@@ -48,8 +49,28 @@ public class testHutools {
 
     @Test
     public void test(){
+        Double d=1.00;
+        d=null;
+        System.out.println(d);
 
 
+    }
+
+    @Test
+    public void testSpring(){
+        //
+        String path="http://localhost:8083/Test/test";
+        String oo=null;
+        if (!StringUtils.isEmpty(path)){
+            oo=path.substring(path.lastIndexOf("/",path.lastIndexOf("/")-1));
+        }
+        //获得"Desktop/1.txt",并且不需要前面的"/"
+
+        //"+1"代表在定位时往后取一位,即去掉"/"
+        //"-1"代表以"/"字符定位的位置向前取一位
+        //从path.lastIndexOf("/")-1位置开始向前寻找倒数第二个"/"的位置
+
+        System.out.println(oo);
 
     }
 }

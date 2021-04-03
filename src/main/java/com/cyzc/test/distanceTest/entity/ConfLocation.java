@@ -1,4 +1,4 @@
-package com.cyzc.test.Entity;
+package com.cyzc.test.distanceTest.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
