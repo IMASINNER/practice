@@ -1,6 +1,7 @@
 package com.cyzc.test.distanceTest.controller;
 
 import com.cyzc.test.distanceTest.service.DistanceService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/distance")
+@Slf4j
 public class DistanceController {
 
     @Autowired
@@ -26,6 +28,7 @@ public class DistanceController {
 
     @PostMapping("/getDistance2")
     public void getDistance2() {
+        log.info("进入接口===========================================");
         distanceService.getDistance2();
     }
 

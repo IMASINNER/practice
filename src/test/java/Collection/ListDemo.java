@@ -1,5 +1,6 @@
 package Collection;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,8 +18,8 @@ import pojo.Person;
 public class ListDemo {
 
     @Test
-    public void testForeach(){
-        List<String> list=new ArrayList<>();
+    public void testForeach() {
+        List<String> list = new ArrayList<>();
 
         list.add("sdadsa");
         list.add("asdas");
@@ -26,15 +27,14 @@ public class ListDemo {
         list.add("sdaaaadsa");
         list.add("sdafgfgdsa");
 
-
         list.stream().forEach(System.out::println);
 
     }
 
     @Test
-    public void testArrayLisrInit(){
+    public void testArrayLisrInit() {
 
-        List list=new ArrayList(2^31);
+        List list = new ArrayList(2 ^ 31);
 
         System.out.println(list);
 
@@ -42,8 +42,8 @@ public class ListDemo {
 
 
     @Test
-    public void testJsonArray(){
-        List<String> s=new ArrayList<>();
+    public void testJsonArray() {
+        List<String> s = new ArrayList<>();
 
         s.add("asdasd");
         s.add("asdasgg");
@@ -52,66 +52,67 @@ public class ListDemo {
     }
 
     @Test
-    public void testUUID(){
+    public void testUUID() {
 
         //List<String> L =new ArrayList();
-        for (int i = 0; i <10 ; i++) {
-            String s= UUID.randomUUID().toString();
+        for (int i = 0; i < 10; i++) {
+            String s = UUID.randomUUID().toString();
             System.out.println(s);
         }
     }
 
     @Test
-    public void testNull(){
-        List<String> s=new ArrayList<>();
+    public void testNull() {
+        List<String> s = new ArrayList<>();
 
-      // s.add("");
-
+        // s.add("");
 
         System.out.println(ObjectUtils.isEmpty(s.get(0)));
 
     }
 
     @Test
-    public  void  getDate(){
+    public void getDate() {
         long timestamp = System.currentTimeMillis();
         // oneOffset.ofHours(0) 获取那个时区
-        LocalDate localDate = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(0)).toLocalDate();
+        LocalDate localDate = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(0))
+                .toLocalDate();
         System.out.println(localDate);
-        LocalDateTime localDateTime = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(0)).toLocalDateTime();
+        LocalDateTime localDateTime = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(0))
+                .toLocalDateTime();
         System.out.println(localDateTime);
     }
 
     @Test
-    public  void getDate1(){
+    public void getDate1() {
 
-        long timestamp =System.currentTimeMillis();
-        LocalDate localDate = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(0)).toLocalDate();
+        long timestamp = System.currentTimeMillis();
+        LocalDate localDate = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(0))
+                .toLocalDate();
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
-        String result=localDate.format(fmt);
+        String result = localDate.format(fmt);
 
         System.out.println(result);
     }
 
     @Test
-    public void TestBigDecimal(){
+    public void TestBigDecimal() {
 
-       // BigDecimal bigDecimal=new BigDecimal();
-
-
+        // BigDecimal bigDecimal=new BigDecimal();
 
     }
-    @Test
-    public void testStreamFilter(){
-        Person person1=new Person("1",1,"1");
-        Person person2=new Person("2",2,"2");
-        Person person3=new Person("3",1,"3");
-        Person person4=new Person("4",4,"5");
-        Person person5=new Person("6",6,"6");
 
-        List<Person> list=new ArrayList<>();
+    @Test
+    public void testStreamFilter() {
+        Person person1 = new Person("1", 1, "1");
+        Person person2 = new Person("2", 2, "2");
+        Person person3 = new Person("3", 1, "3");
+        Person person4 = new Person("4", 4, "5");
+        Person person5 = new Person("6", 6, "6");
+
+        List<Person> list = new ArrayList<>();
         list.add(person1);
         list.add(person2);
         list.add(person3);
@@ -125,16 +126,80 @@ public class ListDemo {
     }
 
     @Test
-    public void testasdas(){
+    public void testasdas() {
 
+        List<String> list = Arrays.asList("1", "2");
 
-        List<String> list= Arrays.asList("1","2");
-
-        list=Arrays.asList("3","4");
+        list = Arrays.asList("3", "4");
 
         System.out.println(list);
 
     }
 
+    @Test
+    public void testNullList() {
+
+        List<String> list = new ArrayList<>();
+        list.add(null);
+        final String s = list.get(0);
+        System.out.println(list);
+        System.out.println(list.isEmpty());
+        System.out.println(list.size());
+        System.out.println(list.get(0));
+        System.out.println(s);
+        System.out.println(null == s);
+
+    }
+
+    @Test
+    public void testIntMax() {
+        int x = Integer.MAX_VALUE;
+        int y = Integer.MAX_VALUE;
+
+        System.out.println(x + y);
+    }
+
+    @Test
+    public void testSubString() {
+
+        String s = "济南伊势丹";
+
+        System.out.println(s.substring(0, 5));
+
+    }
+
+    @Test
+    public void testConvertDate() {
+        String s = "2020-10-27";
+        SimpleDateFormat SDF_19 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        final String s1 = date2TimeStamp(s, "yyyy-MM-dd");
+        System.out.println(Long.parseLong(s1));
+        System.out.println(Long.valueOf(s1));
+
+        System.out.println(s1);
+
+    }
+
+    /**
+     * 日期格式字符串转换成时间戳
+     *
+     * @param date_str 字符串日期
+     * @param format   如：yyyy-MM-dd HH:mm:ss
+     * @return
+     */
+    public static String date2TimeStamp(String date_str, String format) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(format);
+            return String.valueOf(sdf.parse(date_str).getTime());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("\u4f18\u79c0");
+    }
 
 }
