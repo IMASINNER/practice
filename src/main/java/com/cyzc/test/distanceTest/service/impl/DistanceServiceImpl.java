@@ -21,8 +21,10 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -44,6 +46,9 @@ public class DistanceServiceImpl implements DistanceService {
 
     @Autowired
     private CandidateDao candidateDao;
+
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     private static final int CORE_SIZE = 20;
     private static final int MAX_SIZE = 60;
@@ -169,4 +174,13 @@ public class DistanceServiceImpl implements DistanceService {
 
     }
 
+
+    public void testPassword(){
+
+        String s="terwaEWQE2222";
+
+        final String encode = passwordEncoder.encode(s);
+
+        System.out.println(encode);
+    }
 }
