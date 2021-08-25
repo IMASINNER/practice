@@ -1,5 +1,10 @@
 package com.cyzc.test.Collection;
 
+import cn.hutool.core.collection.CollectionUtil;
+import com.cyzc.test.pojo.Person;
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -9,11 +14,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import org.junit.Test;
 import org.springframework.util.ObjectUtils;
-import com.cyzc.test.pojo.Person;
+import org.testng.collections.Lists;
 
 public class ListDemo {
 
@@ -198,7 +204,7 @@ public class ListDemo {
     }
 
     @Test
-    public void test2222(){
+    public void test2222() {
 
         final List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -212,9 +218,9 @@ public class ListDemo {
     }
 
     @Test
-    public void test3333(){
+    public void test3333() {
 
-        List list=new ArrayList();
+        List list = new ArrayList();
 
         final List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -229,6 +235,67 @@ public class ListDemo {
         System.out.println(strings);
     }
 
+    @Test
+    public void test21232() {
+
+        String s = null;
+
+        final List<String> strings = Splitter.on(",").trimResults().splitToList(s);
+
+        List<Integer> ss = new ArrayList<>();
+
+        strings.forEach(item -> ss.add(Integer.valueOf(item))
+        );
+
+        System.out.println(strings);
+        System.out.println(ss);
+    }
+
+    @Test
+    public void test212322() {
+
+        List<String> aa = null;
+
+        final String join = Joiner.on(",").join(aa);
+
+        System.out.println(join);
+
+    }
+
+
+    @Test
+    public void test2123222() {
+
+        final List<Integer> strings = Lists.newArrayList(1, 2, 3, 4);
+
+        List<Integer> ss = new ArrayList<>();
+
+        strings.forEach(item -> {
+            if (item == 2) {
+                return;
+            }
+            item = item + 1;
+            ss.add(item);
+        });
+
+        System.out.println(strings);
+        System.out.println(ss);
+
+    }
+
+    @Test
+    public void test212322233() {
+
+        List<String> l = new ArrayList();
+        String s = null;
+        l.add(s);
+
+        Iterables.removeIf(l, Objects::isNull);
+        System.out.println(ObjectUtils.isEmpty(l));
+        System.out.println(l.size());
+        System.out.println(CollectionUtil.isEmpty(l));
+
+    }
 
     public static void main(String[] args) {
         System.out.println("\u4f18\u79c0");
